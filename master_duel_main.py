@@ -21,7 +21,7 @@ x_1=(60/480)
 x_2=(424/480)
 
 #决定每次检测之后显示最相似的条目总数(避免可能的识别误差)
-show_search_limit=1
+show_search_limit=3
 
 md_process_name='masterduel.exe'
 md_process_window_name='masterduel'
@@ -319,11 +319,11 @@ def translate(type:int,cache:list,debug:bool=False):
     for card in results:
         print(f"{card['name']}(密码:{card['card']},相似度:{card['score']})\n{card['desc']}\n")
     print("-----------------------------------")
-    print("shift+g翻译卡组卡片,shift+f翻译决斗中卡片,esc关闭\n请确保您已经点开了目标卡片的详细信息!!!")
+    print("shift+g翻译卡组卡片,shift+f翻译决斗中卡片,esc关闭\n请在有cards.cdb的目录下，以管理员权限运行\n请确保您已经点开了目标卡片的详细信息!!!")
         
 if __name__ == '__main__':
     cache=get_image_db_cache()
-    print("shift+g翻译卡组卡片,shift+f翻译决斗中卡片,esc关闭\n请确保您已经点开了目标卡片的详细信息!!!")
+    print("shift+g翻译卡组卡片,shift+f翻译决斗中卡片,esc关闭\n请在有cards.cdb的目录下，以管理员权限运行\n请确保您已经点开了目标卡片的详细信息!!!")
     keyboard.add_hotkey('shift+g',translate,args=(1,cache))
     keyboard.add_hotkey('shift+f',translate,args=(2,cache))
     keyboard.wait('esc')
